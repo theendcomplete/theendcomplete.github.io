@@ -10,7 +10,7 @@
 
 if (!_flutter) {
   var _flutter = {};
-}
+} 
 _flutter.loader = null;
 
 (function() {
