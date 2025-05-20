@@ -1,38 +1,60 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <!--
-    If you are serving your web app in a path other than the root, change the
-    href value below to reflect the base path you are serving from.
+  <head>
+    <base href="/gpx_animator/" />
 
-    The path provided below has to start and end with a slash "/" in order for
-    it to work correctly.
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    For more details:
-    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+    <!-- SEO -->
+    <title>GPX Track Animator</title>
+    <meta
+      name="description"
+      content="Animate and preview GPX tracks right in your browser with this Flutter web app."
+    />
+    <meta
+      name="keywords"
+      content="gpx, animation, map, flutter web, gps, tracks"
+    />
+    <meta name="author" content="Your Name" />
 
-    This is a placeholder for base href that will be replaced by the value of
-    the `--base-href` argument provided to `flutter build`.
-  -->
-  <base href="/gpx_animator/">
+    <!-- Viewport -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="A new Flutter project.">
+    <!-- Mobile Support -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="GPX Animator" />
+    <link rel="apple-touch-icon" href="icons/Icon-192.png" />
 
-  <!-- iOS meta tags & icons -->
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="gpx_parser">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="GPX Track Animator" />
+    <meta
+      property="og:description"
+      content="Upload and animate your GPX tracks using this interactive Flutter web app."
+    />
+    <meta property="og:image" content="icons/Icon-512.png" />
+    <meta
+      property="og:url"
+      content="https://theendcomplete.github.io/gpx_animator/"
+    />
+    <meta property="og:type" content="website" />
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="favicon.png"/>
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="GPX Track Animator" />
+    <meta
+      name="twitter:description"
+      content="Visualize your GPX files as animated tracks on the map."
+    />
+    <meta name="twitter:image" content="icons/Icon-512.png" />
 
-  <title>gpx_parser</title>
-  <link rel="manifest" href="manifest.json">
-</head>
-<body>
-  <script src="flutter_bootstrap.js" async></script>
-</body>
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="favicon.png" />
+
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <script src="flutter_bootstrap.js" async></script>
+  </body>
 </html>
