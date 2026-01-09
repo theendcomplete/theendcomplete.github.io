@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>theendcomplete - App Lab</title>
+    <meta
+      name="description"
+      content="A small collection of experiments and tools."
+    />
+    <link rel="icon" href="password_generator/favicon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #f6efe5;
+        --bg-deep: #f0dcc5;
+        --ink: #241f1a;
+        --muted: #6b5e52;
+        --accent: #e4663a;
+        --accent-2: #1c6c83;
+        --card: #fff6ec;
+        --stroke: #e2d3c3;
+        --shadow: rgba(36, 31, 26, 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: "Space Grotesk", system-ui, sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(1200px 600px at 10% -10%, #fbe5ce 0%, transparent 60%),
+          radial-gradient(900px 500px at 90% 0%, #d9f0f3 0%, transparent 55%),
+          linear-gradient(180deg, var(--bg) 0%, var(--bg-deep) 100%);
+        min-height: 100vh;
+      }
+
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        pointer-events: none;
+        background:
+          repeating-linear-gradient(
+            120deg,
+            rgba(255, 255, 255, 0.28) 0px,
+            rgba(255, 255, 255, 0.28) 2px,
+            transparent 2px,
+            transparent 8px
+          );
+        opacity: 0.35;
+        mix-blend-mode: soft-light;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .page {
+        position: relative;
+        padding: 56px 20px 80px;
+      }
+
+      .wrap {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      header {
+        display: flex;
+        flex-direction: column;
+        gap: 28px;
+        margin-bottom: 56px;
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        border: 1px solid rgba(36, 31, 26, 0.15);
+        background: rgba(255, 255, 255, 0.55);
+        font-size: 0.85rem;
+        letter-spacing: 0.02em;
+      }
+
+      h1 {
+        font-family: "Fraunces", "Times New Roman", serif;
+        font-size: clamp(2.6rem, 5vw, 4rem);
+        line-height: 1.05;
+        margin: 0;
+      }
+
+      .lede {
+        font-size: 1.15rem;
+        color: var(--muted);
+        max-width: 560px;
+      }
+
+      .grid {
+        display: grid;
+        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      }
+
+      .card {
+        padding: 24px;
+        background: var(--card);
+        border: 1px solid var(--stroke);
+        border-radius: 18px;
+        box-shadow: 0 12px 32px var(--shadow);
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        min-height: 240px;
+        position: relative;
+        overflow: hidden;
+        animation: lift 0.6s ease both;
+      }
+
+      .card:nth-child(1) {
+        animation-delay: 0.05s;
+      }
+
+      .card:nth-child(2) {
+        animation-delay: 0.12s;
+      }
+
+      .card:nth-child(3) {
+        animation-delay: 0.18s;
+      }
+
+      .card::after {
+        content: "";
+        position: absolute;
+        inset: auto -30% -40% -30%;
+        height: 140px;
+        background: radial-gradient(
+          circle,
+          rgba(228, 102, 58, 0.18),
+          transparent 70%
+        );
+        opacity: 0.6;
+      }
+
+      .card h2 {
+        margin: 0;
+        font-size: 1.5rem;
+        font-family: "Fraunces", "Times New Roman", serif;
+      }
+
+      .card p {
+        margin: 0;
+        color: var(--muted);
+        line-height: 1.5;
+      }
+
+      .meta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        font-size: 0.85rem;
+      }
+
+      .meta span {
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba(28, 108, 131, 0.12);
+        color: var(--accent-2);
+      }
+
+      .cta {
+        margin-top: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: var(--accent);
+      }
+
+      .cta svg {
+        width: 18px;
+        height: 18px;
+        transition: transform 0.2s ease;
+      }
+
+      .card:hover .cta svg,
+      .card:focus-within .cta svg {
+        transform: translateX(4px);
+      }
+
+      .card:focus-within,
+      .card:hover {
+        border-color: rgba(228, 102, 58, 0.5);
+      }
+
+      footer {
+        margin-top: 64px;
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      @keyframes lift {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 720px) {
+        .page {
+          padding: 44px 16px 64px;
+        }
+
+        header {
+          gap: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <div class="wrap">
+        <header>
+          <span class="badge">theendcomplete / app lab</span>
+          <div>
+            <h1>Small experiments, shipped fast.</h1>
+            <p class="lede">
+              A minimal landing pad for side projects and tools built in Flutter.
+              Pick a tile to jump into each app.
+            </p>
+          </div>
+        </header>
+
+        <section class="grid" aria-label="Apps">
+          <a class="card" href="fight_club/" aria-label="Open Fight Club">
+            <div class="meta">
+              <span>Game</span>
+              <span>Flutter</span>
+            </div>
+            <h2>Fight Club</h2>
+            <p>
+              A bite-sized duel experience with retro vibes and quick rounds.
+              Jump in, tap fast, and see who drops first.
+            </p>
+            <span class="cta">
+              Launch app
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14" />
+                <path d="M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+
+          <a class="card" href="gpx_animator/" aria-label="Open GPX Animator">
+            <div class="meta">
+              <span>Maps</span>
+              <span>Animation</span>
+            </div>
+            <h2>GPX Animator</h2>
+            <p>
+              Animate GPX tracks on an interactive map. Drop in a route and
+              replay the journey with motion and timing.
+            </p>
+            <span class="cta">
+              Launch app
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14" />
+                <path d="M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+
+          <a class="card" href="password_generator/" aria-label="Open Password Generator">
+            <div class="meta">
+              <span>Utility</span>
+              <span>Offline</span>
+            </div>
+            <h2>Password Generator</h2>
+            <p>
+              Generate strong, unique passwords with a clean, fast interface.
+              Tweak options and copy with a single tap.
+            </p>
+            <span class="cta">
+              Launch app
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M5 12h14" />
+                <path d="M13 5l7 7-7 7" />
+              </svg>
+            </span>
+          </a>
+        </section>
+
+        <footer>
+          Built for GitHub Pages. Add new apps by dropping folders next to these
+          and updating this index.
+        </footer>
+      </div>
+    </main>
+  </body>
+</html>
