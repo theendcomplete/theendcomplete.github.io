@@ -521,6 +521,7 @@ class CompiledApp {
       _1381: (o, start, length) => new Float64Array(o.buffer, o.byteOffset + start, length),
       _1382: (t, s) => t.set(s),
       _1384: (o) => new DataView(o.buffer, o.byteOffset, o.byteLength),
+      _1385: o => o.byteLength,
       _1386: o => o.buffer,
       _1387: o => o.byteOffset,
       _1388: Function.prototype.call.bind(Object.getOwnPropertyDescriptor(DataView.prototype, 'byteLength').get),
