@@ -7,6 +7,7 @@ A small collection of Flutter experiments hosted on GitHub Pages.
 - Fight Club: `fight_club/`
 - GPX Animator: `gpx_animator/`
 - Password Generator: `password_generator/`
+- Boat Racing (Godot web build): `boat_racing/`
 
 ## Usage
 
